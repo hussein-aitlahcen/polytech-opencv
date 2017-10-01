@@ -11,7 +11,7 @@ public final class App {
             System.out.println("Aucun paramètre en entrée. Exemple: java x <operationId> <arg1> <arg2> ...");
         } else {
             Observable.fromArray(args).take(1).map(Integer::parseInt).map(OperationType::ofId)
-                    .doOnNext(operation -> operation.function().execute(Observable.fromArray(args).skip(1)))
+                    .map(OperationType::function).doOnNext(fun -> fun.execute(Observable.fromArray(args).skip(1)))
                     .subscribe();
         }
     }

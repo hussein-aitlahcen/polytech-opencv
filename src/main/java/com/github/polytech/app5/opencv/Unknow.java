@@ -2,7 +2,7 @@ package com.github.polytech.app5.opencv;
 
 public final class Unknow extends Operation<UnknowState> {
     @Override
-    public void accept(final UnknowState state) throws Exception {
+    public void accept(final UnknowState state) {
         System.out.println("Unknow operation.");
     }
 
